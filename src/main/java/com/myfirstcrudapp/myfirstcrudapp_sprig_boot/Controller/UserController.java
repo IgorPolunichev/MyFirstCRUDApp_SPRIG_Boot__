@@ -36,7 +36,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @DeleteMapping(value = "/remove/{id}")
+    @RequestMapping(value = "/remove/{id}")
     public String deleteUser(@PathVariable(name = "id") int id) {
         userServ.removeUser(id);
         return "redirect:/users ";
