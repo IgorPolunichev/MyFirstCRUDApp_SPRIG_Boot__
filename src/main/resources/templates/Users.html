@@ -25,16 +25,26 @@
         <td th:text = "${user.getLastName()}"></td>
         <td th:text = "${user.getAge()}"></td>
         <td>
-            <a th:href="@{/users/remove/__${user.id}__}" class="btn btn-danger">Delete</a>
+<!--            <a th:method="DELETE" th:href="@{/users/remove/__${user.id}__}" class="btn btn-danger">Delete</a>-->
+            <form th:method="DELETE" th:action="@{/users/remove/__${user.id}__}">
+                <input type="submit" value="DELETE">
+            </form>
         </td>
         <td>
-            <a th:href="@{/users/edit/__${user.getId()}__}" class="btn btn-danger">Edit</a>
+<!--            <a th:href="@{/users/edit/__${user.getId()}__}" class="btn btn-danger">Edit</a>-->
+            <form th:method="GET" th:action="@{/users/edit/__${user.getId()}__}">
+            <input type="submit" value="EDIT">
+            </form>
+
         </td>
     </tr>
     </tbody>
 </table>
 <br>
-<a th:href="@{/users/addUser}" class="btn btn-danger">Add new USER</a>
+<!--<a th:href="@{/users/addUser}" class="btn btn-danger">Add new USER</a>-->
+<form th:method="GET" th:action="@{/users/addUser}">
+    <input type="submit" value="Add new USER">
+</form>
 
 </body>
 </html>
